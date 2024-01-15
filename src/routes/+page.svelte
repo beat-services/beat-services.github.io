@@ -31,15 +31,16 @@
     color: black;
     font-family: 'Alte Haas Grotesk', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 4vw 0 0 0;
   }
   .big {
-    font-size: 6vw;
+    font-size: 6.5vw;
     line-height: 5vw;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     padding: 10% 0;
+    white-space: nowrap;
   }
   .quote {
     font-size: 3vw;
