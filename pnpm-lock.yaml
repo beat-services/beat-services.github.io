@@ -5,9 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@sveltestrap/sveltestrap':
-    specifier: ^6.2.2
-    version: 6.2.2(svelte@4.2.8)
+  '@threlte/core':
+    specifier: ^7.0.12
+    version: 7.0.12(svelte@4.2.8)(three@0.160.0)
+  '@threlte/extras':
+    specifier: ^8.1.2
+    version: 8.1.2(svelte@4.2.8)(three@0.160.0)
+  postprocessing:
+    specifier: 7.0.0-alpha-1
+    version: 7.0.0-alpha-1(three@0.160.0)
+  three:
+    specifier: ^0.160.0
+    version: 0.160.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -395,6 +404,7 @@ packages:
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: true
 
   /@rollup/rollup-android-arm-eabi@4.9.5:
     resolution: {integrity: sha512-idWaG8xeSRCfRq9KpRysDHJ/rEHBEXcHuJ82XY0yYFIWnLMjZv9vF/7DOq8djQ2n3Lk6+3qfSH8AqlmHlmi1MA==}
@@ -580,13 +590,26 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltestrap/sveltestrap@6.2.2(svelte@4.2.8):
-    resolution: {integrity: sha512-yIcjL5wYIYg+dLVA5kf+m1S8wc2dhEtSd4Exk2nMJ7SN4MHGbPajVxjhlRGB9ACZynETZ9K+CUyQsC9grGztkw==}
+  /@threlte/core@7.0.12(svelte@4.2.8)(three@0.160.0):
+    resolution: {integrity: sha512-+I4+mVsxAfn4Og9it48x5+oQSDr3kg4O1qpCxUdVVPAzu69MpVd+2iYU9lnBlS1ZCSlNlTXU2UUFlw895HJ9ZA==}
     peerDependencies:
-      svelte: ^4.0.0 || ^5.0.0 || ^5.0.0-next.0
+      svelte: '>=4'
+      three: '>=0.133'
     dependencies:
-      '@popperjs/core': 2.11.8
+      mitt: 3.0.1
       svelte: 4.2.8
+      three: 0.160.0
+    dev: false
+
+  /@threlte/extras@8.1.2(svelte@4.2.8)(three@0.160.0):
+    resolution: {integrity: sha512-ylI/C90d49DoRwbjjcdtjsG6eHbJX9ErqJIr88xgHdeOTi+RZKXXt+T/bF9jTAcw6psadND9MplkrhdYTAKZTw==}
+    peerDependencies:
+      svelte: '>=4'
+      three: '>=0.133'
+    dependencies:
+      svelte: 4.2.8
+      three: 0.160.0
+      troika-three-text: 0.47.2(three@0.160.0)
     dev: false
 
   /@types/cookie@0.6.0:
@@ -690,6 +713,12 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
+
+  /bidi-js@1.0.3:
+    resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
+    dependencies:
+      require-from-string: 2.0.2
+    dev: false
 
   /binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -1445,6 +1474,10 @@ packages:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
 
+  /mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+    dev: false
+
   /mkdirp@0.5.6:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
     hasBin: true
@@ -1651,6 +1684,15 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /postprocessing@7.0.0-alpha-1(three@0.160.0):
+    resolution: {integrity: sha512-+qHQykCpAfeRzasNHPrRZhjJo5ZFVF+uKTqFxN/0+r62Omm7HEos0HUAN73UMhchn9h7pZyi5JcfcjY5PZwYCA==}
+    engines: {node: '>= 0.18.0'}
+    peerDependencies:
+      three: '>= 0.160.0 < 0.161.0'
+    dependencies:
+      three: 0.160.0
+    dev: false
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -1687,6 +1729,11 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /require-from-string@2.0.2:
+    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -1976,6 +2023,10 @@ packages:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
 
+  /three@0.160.0:
+    resolution: {integrity: sha512-DLU8lc0zNIPkM7rH5/e1Ks1Z8tWCGRq6g8mPowdDJpw1CFBJMU7UoJjC6PefXW7z//SSl0b2+GCw14LB+uDhng==}
+    dev: false
+
   /tiny-glob@0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
     dependencies:
@@ -2001,6 +2052,30 @@ packages:
     dependencies:
       escape-string-regexp: 1.0.5
     dev: true
+
+  /troika-three-text@0.47.2(three@0.160.0):
+    resolution: {integrity: sha512-qylT0F+U7xGs+/PEf3ujBdJMYWbn0Qci0kLqI5BJG2kW1wdg4T1XSxneypnF05DxFqJhEzuaOR9S2SjiyknMng==}
+    peerDependencies:
+      three: '>=0.125.0'
+    dependencies:
+      bidi-js: 1.0.3
+      three: 0.160.0
+      troika-three-utils: 0.47.2(three@0.160.0)
+      troika-worker-utils: 0.47.2
+      webgl-sdf-generator: 1.1.1
+    dev: false
+
+  /troika-three-utils@0.47.2(three@0.160.0):
+    resolution: {integrity: sha512-/28plhCxfKtH7MSxEGx8e3b/OXU5A0xlwl+Sbdp0H8FXUHKZDoksduEKmjQayXYtxAyuUiCRunYIv/8Vi7aiyg==}
+    peerDependencies:
+      three: '>=0.125.0'
+    dependencies:
+      three: 0.160.0
+    dev: false
+
+  /troika-worker-utils@0.47.2:
+    resolution: {integrity: sha512-mzss4MeyzUkYBppn4x5cdAqrhBHFEuVmMMgLMTyFV23x6GvQMyo+/R5E5Lsbrt7WSt5RfvewjcwD1DChRTA9lA==}
+    dev: false
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -2081,6 +2156,10 @@ packages:
     dependencies:
       vite: 5.0.11(sass@1.69.7)
     dev: true
+
+  /webgl-sdf-generator@1.1.1:
+    resolution: {integrity: sha512-9Z0JcMTFxeE+b2x1LJTdnaT8rT8aEp7MVxkNwoycNmJWwPdzoXzMh0BjJSh/AEFP+KPYZUli814h8bJZFIZ2jA==}
+    dev: false
 
   /which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
