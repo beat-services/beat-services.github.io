@@ -1,3 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+
+@theme {
+  /* Bauhaus Exhibition Poster 1923 Theme */
+  --color-primary: #ff6b1a; /* The orange accent color */
+  --color-primary-dark: #e45500; /* Darker orange for hover states */
+  --color-primary-light: #ff8c4d; /* Lighter orange for highlights */
+
+  --color-secondary: #000000; /* The black geometric shapes */
+  --color-secondary-light: #333333; /* Lighter black for hover states */
+
+  --color-background: #f0f1ed; /* Neutral off-white background */
+  --color-background-alt: #eae6dc; /* Slightly darker cream for alternating sections */
+
+  --color-text: #1a1a1a; /* Near black for text */
+  --color-text-light: #555555; /* For secondary text */
+
+  /* Additional utility colors */
+  --color-success: #2d6a4f; /* Bauhaus-inspired green */
+  --color-warning: #ff6b1a; /* Same as primary */
+  --color-error: #d62828; /* A red that works with the palette */
+
+  /* Typography */
+  --font-family-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-mono: 'Courier New', monospace;
+
+  /* Spacing */
+  --spacing-unit: 0.25rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Border radius */
+  --radius-sm: 0px; /* Bauhaus style typically uses sharp edges */
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Animation */
+  --transition-slow: 300ms;
+  --transition-normal: 200ms;
+  --transition-fast: 100ms;
+
+  /* Bauhaus-inspired font stacks */
+  --font-family-primary:
+    'Montserrat', 'Futura PT', 'Century Gothic', sans-serif;
+  --font-family-secondary:
+    'Work Sans', 'Bau', 'Avenir', 'Helvetica Neue', sans-serif;
+  --font-family-display: 'Futura', 'Universal Grotesk', 'Gill Sans', sans-serif;
+
+  /* Typographic scale (based on geometric progression) */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  /* Bauhaus favored geometric precision - using deliberate line heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.25;
+  --line-height-relaxed: 1.5;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+:root {
+  .button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    transition: background-color var(--transition-fast) ease;
+  }
+
+  .button-primary:hover {
+    background-color: var(--color-primary-dark);
+  }
+}

@@ -1,148 +1,10 @@
 <script>
   import { onMount } from 'svelte'
+  import logo from './beat.svg'
+  import profile from './profile.js'
 
   // Svelte 5 state declaration
   let sections = $state([])
-
-  // Données du profil
-  const profile = {
-    name: 'David Olivari',
-    title:
-      'Ingénieur Recherche & Développement\nSystème multimédia, embarqué et connecté',
-    specialties: [
-      'Node.js / Javascript',
-      'MongoDB / Redis',
-      'Svelte/SvelteKit',
-      'UI/UX Design',
-      'Linux embarqué',
-      'MQTT / RabbitMQ',
-      'Kubernetes / Docker ',
-      'Python / MicroPython',
-    ],
-    about:
-      "Ingénieur polyvalent à la croisée du web et des systèmes embarqués, je conçois des solutions connectées innovantes combinant expertise technique et vision architecturale acquises durant plus de 20 ans d'expérience dans les secteurs de la santé, l'agriculture et la culture.\n Ma méthode de travail, caractérisée par des cycles intensifs de développement et une attention particulière à la performance et à l'expérience utilisateur, me permet de relever des défis techniques complexes tout en créant des interfaces intuitives.\n Je recherche des projets ambitieux où la technologie répond à des besoins concrets, avec un mode de collaboration privilégiant l'autonomie et des interactions ciblées avec les équipes.",
-    sectorExperience: [
-      {
-        title: 'Technologies culturelles',
-        description:
-          'Installations interactives et multimédia pour les musées, dispositifs scéniques numériques',
-      },
-      {
-        title: 'HealthTech',
-        description:
-          'Application de suivi des analyses médicales et interopérabilité avec les systèmes de santé connectés',
-      },
-      {
-        title: 'IOT',
-        description:
-          "Gestionnaire de reseau Lora pour l'agriculture et l'efficacité énergétique",
-      },
-      {
-        title: 'Industrie 4.0',
-        description:
-          "Contrôle commande pour l'industrie énergétique, maintenance prédictive",
-      },
-    ],
-    skills: [
-      {
-        category: 'Frontend',
-        items: [
-          'JavaScript',
-          'UI/UX Design',
-          'Svelte/SvelteKit',
-          'Bootstrap',
-          'WASM',
-        ],
-      },
-      {
-        category: 'Backend',
-        items: [
-          'Node.js',
-          'MongoDB',
-          'Redis',
-          'GraphQL',
-          'Microservices',
-          'Server Side Events',
-          'PostgreSQL',
-          'ElasticSearch',
-        ],
-      },
-      {
-        category: 'Infrastructure',
-        items: [
-          'DevOps',
-          'CI/CD',
-          'Serverless',
-          'Docker',
-          'Kubernetes',
-          'RabbitMQ',
-          'AWS',
-          'Scaleway',
-        ],
-      },
-      {
-        category: 'IoT et Système embarqué',
-        items: [
-          'RaspberryPi',
-          'Linux embarqué',
-          'ESP32',
-          'Arduino',
-          'MicroPython',
-          'LORA',
-          'MQTT',
-          'BLE',
-          'Zigbee',
-        ],
-      },
-    ],
-    projects: [
-      {
-        title: 'Application de gestion de festival',
-        description:
-          "Ensemble de services pour le festival d'Aurillac : Enregistrement des compagnies, suivie des besoins techniques, gestion des lieux et de la programmation, gestion des accréditations professionnelles, gestion du catering intégrant les besoins alimentaires, édition des badges d'accès, gestion des contacts. Application mobile pour le controle d'accès et la gestion des accréditations",
-        technologies: ['SvelteKit', 'Node.js', 'MongoDB', 'Redis', 'Vercel'],
-      },
-      {
-        title: 'Application de santé connectée',
-        description:
-          "Solution pré et post analytique pour les analyses médicales délocalisé et en laboratoire. Application mobile et web pour les patients et les professionnels de santé. Interopérabilité avec les systèmes de santé connectés. Travail de recherche en design sur la présentation des résultats. Outils utilisant l'IA pour le contrôle des tests rapides",
-        technologies: [
-          'SvelteKit',
-          'Node.js',
-          'Kubernetes',
-          'MongoDB',
-          'Redis',
-          'RabbitMQ',
-          'AWS',
-        ],
-      },
-      {
-        title: 'Dispositif domestique de recyclage des eaux grises',
-        description:
-          "Système de pilotage d'un appareil de recyclage des eaux grises domestiques. Développement de l'interface utilisateur, gestion des capteurs et des actionneurs. Conception de la carte électronique de pilotage, supervision de l'installation en ligne, collecte de données pour l'analyse des performances",
-        technologies: [
-          'RaspberryPi',
-          'Node.js',
-          'Vue.js',
-          'MQTT',
-          'ElasticSearch',
-          'Kibana',
-          'Linux Embarqué',
-        ],
-      },
-      {
-        title: "Système de suivi d'irrigation",
-        description:
-          "Plateforme LORA pour la surveillance des sols et l'optimisation des ressources en eau dans le domaine viticole. Application web pour la visualisation des données et l'analyse des performances. Gestion de réseau LoraWan. Interopérabilité avec le système de suivi de consommation en eau",
-        technologies: ['LoraWan', 'Node.js', 'Vue.js', 'MQTT', 'RaspberryPi'],
-      },
-    ],
-    contact: {
-      email: 'votre.email@exemple.com',
-      linkedin: 'https://linkedin.com/in/votrenom',
-      github: 'https://github.com/votrenom',
-    }, // Corrected the misplaced closing brace here
-  } // Closing brace for the profile object
 
   // Animation pour les sections au scroll
   onMount(() => {
@@ -176,70 +38,70 @@
   <meta name="description" content={profile.about} />
 </svelte:head>
 
-<div
-  class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-100">
+<!-- Main background div -->
+<div class="bg-background text-text min-h-screen">
   <!-- Navigation -->
   <nav
-    class="fixed w-full z-10 backdrop-blur-lg bg-gray-900/80 border-b border-gray-800">
-    <div class="container mx-auto py-4 px-6 flex justify-between items-center">
-      <div class="text-xl font-bold">{profile.name}</div>
-      <div class="hidden md:flex space-x-8">
-        <a href="#about" class="hover:text-blue-400 transition">À propos</a>
-        <a href="#expertise" class="hover:text-blue-400 transition">
-          Expertise
-        </a>
-        <a href="#projects" class="hover:text-blue-400 transition">Projets</a>
-        <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    class="border-text-light/30 bg-background/80 fixed z-10 w-full border-b backdrop-blur-lg">
+    <div class="container mx-auto flex items-center justify-between py-3">
+      <div class="text-secondary text-xl font-bold">
+        <img src={logo} alt="Logo" class="h-16 w-auto" />
       </div>
-      <button class="md:hidden text-2xl">☰</button>
+      <div class="hidden space-x-8 md:flex">
+        <a href="#about" class="hover:text-primary transition">À propos</a>
+        <a href="#expertise" class="hover:text-primary transition">Expertise</a>
+        <a href="#projects" class="hover:text-primary transition">Projets</a>
+        <a href="#contact" class="hover:text-primary transition">Contact</a>
+      </div>
+      <button class="text-2xl md:hidden">☰</button>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="pt-32 pb-20 px-6 md:px-0">
-    <div class="container mx-auto flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 mb-10 md:mb-0">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">
-          <span class="text-white">Bonjour, je suis</span>
+  <header class="px-6 pt-32 pb-20 md:px-0">
+    <div class="container mx-auto flex flex-col items-center md:flex-row">
+      <div class="mb-10 md:mb-0 md:w-1/2">
+        <h1 class="mb-4 text-4xl font-bold md:text-6xl">
+          <span class="text-text font-primary">Bonjour, je suis</span>
           <br />
-          <span
-            class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+          <span class="text-primary font-bold">
             {profile.name}
           </span>
         </h1>
-        <h2 class="text-2xl md:text-3xl font-medium mb-6 text-blue-200">
+        <h2 class="text-secondary mb-6 text-2xl font-medium md:text-3xl">
           {profile.title}
         </h2>
-        <div class="text-xl text-gray-300 mb-8 max-w-lg">
+        <div class="text-text/80 mb-8 max-w-lg text-xl">
           {#each profile.about.split('\n') as paragraph}
             <p class="mb-3">{paragraph}</p>
           {/each}
         </div>
         <div class="flex space-x-4">
-          <a
+          <!-- <a
             href="#contact"
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition">
+            class="bg-secondary text-background hover:bg-secondary-light rounded-lg px-6 py-3 font-medium transition">
             Me contacter
-          </a>
+          </a> -->
           <a
             href="#projects"
-            class="px-6 py-3 border border-blue-400 text-blue-400 hover:bg-blue-400/10 rounded-lg font-medium transition">
+            class="border-primary text-primary hover:bg-primary/10 rounded-lg border px-6 py-3 font-medium transition">
             Voir mes projets
           </a>
         </div>
       </div>
-      <div class="md:w-1/2 flex justify-center">
-        <div class="w-96 h-96 relative">
+      <!-- Profile image container -->
+      <div class="flex justify-center md:w-1/2">
+        <div class="relative h-96 w-96">
           <div
-            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full blur-xl opacity-50">
+            class="bg-primary-light absolute inset-0 rounded-full opacity-20">
           </div>
-          <div class="absolute inset-0 border-2 border-blue-400 rounded-full">
+          <div class="border-secondary absolute inset-0 rounded-full border-2">
           </div>
           <div class="absolute inset-0 flex items-center justify-center">
             <img
               src="https://gravatar.com/avatar/eecc0b23b57e851cf299a64d06f7dca7?size=256"
               alt={profile.name}
-              class="rounded-full h-full w-full object-cover" />
+              class="h-full w-full rounded-full object-cover" />
           </div>
         </div>
       </div>
@@ -249,42 +111,39 @@
   <!-- About Section -->
   <section
     id="about"
-    class="py-20 px-6 md:px-0 opacity-0 transition-all duration-700 transform translate-y-10">
+    class="translate-y-10 transform px-6 py-20 opacity-0 transition-all duration-700 md:px-0">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-          Mes spécialités
-        </span>
+      <h2 class="mb-12 text-center text-3xl font-bold">
+        <span class="text-primary">Mes spécialités</span>
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {#each profile.specialties as specialty, i}
           <div
-            class="bg-gray-800/50 backdrop-blur-md p-6 rounded-xl border border-gray-700 hover:border-blue-400 transition-all hover:shadow-lg hover:shadow-blue-900/20 group">
+            class="group border-background-alt/30 bg-background hover:border-primary rounded-xl border p-6 shadow-md transition-all hover:shadow-lg">
             <div
-              class="text-5xl mb-4 text-blue-400 group-hover:scale-110 transition-transform">
+              class="text-text mb-4 text-5xl transition-transform group-hover:scale-110">
               {i + 1}
             </div>
-            <h3 class="text-xl font-semibold mb-2">{specialty}</h3>
+            <h3 class="text-text mb-2 text-xl font-semibold">
+              {specialty}
+            </h3>
           </div>
         {/each}
       </div>
 
+      <!-- Sector experience cards -->
       <div class="mt-20">
-        <h2 class="text-3xl font-bold mb-12 text-center">
-          <span
-            class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-            Expérience sectorielle
-          </span>
+        <h2 class="mb-12 text-center text-3xl font-bold">
+          <span class="text-primary">Expérience sectorielle</span>
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {#each profile.sectorExperience as sector}
             <div
-              class="bg-gray-800/50 backdrop-blur-md p-6 rounded-xl border border-gray-700 hover:border-blue-400 transition-all hover:shadow-lg hover:shadow-blue-900/20">
-              <h3 class="text-xl font-semibold mb-2 text-blue-300">
+              class="border-background-alt/30 bg-background hover:border-primary rounded-xl border p-6 shadow-md transition-all hover:shadow-lg">
+              <h3 class="text-secondary mb-2 text-xl font-semibold">
                 {sector.title}
               </h3>
-              <p class="text-gray-400">{sector.description}</p>
+              <p class="text-text/80">{sector.description}</p>
             </div>
           {/each}
         </div>
@@ -295,26 +154,23 @@
   <!-- Expertise Section -->
   <section
     id="expertise"
-    class="py-20 px-6 md:px-0 bg-gray-800/30 opacity-0 transition-all duration-700 transform translate-y-10">
+    class="bg-text-light/10 translate-y-10 transform px-6 py-20 opacity-0 transition-all duration-700 md:px-0">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-          Compétences techniques
-        </span>
+      <h2 class="mb-12 text-center text-3xl font-bold">
+        <span class="text-primary">Compétences techniques</span>
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
         {#each profile.skills as skillGroup}
           <div
-            class="bg-gray-800/50 backdrop-blur-md p-6 rounded-xl border border-gray-700">
-            <h3 class="text-xl font-semibold mb-4 text-blue-300">
+            class="border-background-alt/30 bg-background rounded-xl border p-6 shadow-md">
+            <h3 class="text-secondary mb-4 text-xl font-semibold">
               {skillGroup.category}
             </h3>
             <div class="flex flex-wrap gap-2">
               {#each skillGroup.items as skill}
                 <span
-                  class="px-3 py-1 bg-blue-900/50 text-blue-200 rounded-full text-sm">
+                  class="bg-secondary/10 text-text rounded-full px-3 py-1 text-sm">
                   {skill}
                 </span>
               {/each}
@@ -328,31 +184,27 @@
   <!-- Projects Section -->
   <section
     id="projects"
-    class="py-20 px-6 md:px-0 opacity-0 transition-all duration-700 transform translate-y-10">
+    class="translate-y-10 transform px-6 py-20 opacity-0 transition-all duration-700 md:px-0">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-          Projets récents
-        </span>
+      <h2 class="mb-12 text-center text-3xl font-bold">
+        <span class="text-primary">Projets récents</span>
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {#each profile.projects as project}
           <div
-            class="bg-gray-800/50 backdrop-blur-md rounded-xl overflow-hidden border border-gray-700 hover:border-blue-400 transition-all hover:shadow-lg hover:shadow-blue-900/20 group">
-            <div class="h-2 bg-gradient-to-r from-blue-500 to-emerald-500">
-            </div>
+            class="bg-background border-background-alt/30 hover:border-primary group overflow-hidden rounded-xl border p-6 shadow-md transition-all hover:shadow-lg">
+            <div class="bg-primary h-2"></div>
             <div class="p-6">
               <h3
-                class="text-xl font-semibold mb-2 group-hover:text-blue-300 transition">
+                class="text-text group-hover:text-primary mb-2 text-xl font-semibold transition">
                 {project.title}
               </h3>
-              <p class="text-gray-400 mb-4">{project.description}</p>
+              <p class="text-text/80 mb-4">{project.description}</p>
               <div class="flex flex-wrap gap-2">
                 {#each project.technologies as tech}
                   <span
-                    class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
+                    class="bg-secondary/10 text-text rounded px-2 py-1 text-xs">
                     {tech}
                   </span>
                 {/each}
@@ -364,172 +216,109 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section
-    id="contact"
-    class="py-20 px-6 md:px-0 bg-gray-800/30 opacity-0 transition-all duration-700 transform translate-y-10">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl font-bold mb-12 text-center">
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-          Me contacter
-        </span>
-      </h2>
+  <!-- Contact section -->
+  {#if false}
+    <section
+      id="contact"
+      class="bg-text-light/10 translate-y-10 transform px-6 py-20 opacity-0 transition-all duration-700 md:px-0">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="mb-12 text-center text-3xl font-bold">
+          <span class="text-primary">Me contacter</span>
+        </h2>
 
-      <div
-        class="bg-gray-800/50 backdrop-blur-md p-8 rounded-xl border border-gray-700">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h3 class="text-xl font-semibold mb-4 text-blue-300">
-              Envoyez-moi un message
-            </h3>
-            <form class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-400 mb-1">
-                  Nom
-                </label>
-                <input
-                  type="text"
-                  class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-400 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-400 mb-1">
-                  Message
-                </label>
-                <textarea
-                  rows="4"
-                  class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400">
-                </textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition">
-                Envoyer
-              </button>
-            </form>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-semibold mb-4 text-blue-300">
-              Informations de contact
-            </h3>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 bg-blue-900/50 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-blue-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+        <div
+          class="bg-background border-background-alt/30 rounded-xl border p-8 shadow-md">
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div>
+              <h3 class="text-secondary mb-4 text-xl font-semibold">
+                Envoyez-moi un message
+              </h3>
+              <form class="space-y-4">
+                <div>
+                  <label class="text-text/70 mb-1 block text-sm font-medium">
+                    Nom
+                  </label>
+                  <input
+                    type="text"
+                    class="bg-background border-background-alt/50 focus:border-primary w-full rounded-lg border px-4 py-2 focus:outline-none" />
                 </div>
                 <div>
-                  <div class="text-sm text-gray-400">Email</div>
-                  <a
-                    href="mailto:{profile.contact.email}"
-                    class="text-blue-300 hover:underline">
-                    {profile.contact.email}
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 bg-blue-900/50 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-blue-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  <label class="text-text/70 mb-1 block text-sm font-medium">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    class="bg-background border-background-alt/50 focus:border-primary w-full rounded-lg border px-4 py-2 focus:outline-none" />
                 </div>
                 <div>
-                  <div class="text-sm text-gray-400">LinkedIn</div>
-                  <a
-                    href={profile.contact.linkedin}
-                    target="_blank"
-                    class="text-blue-300 hover:underline">
-                    linkedin.com/in/votrenom
-                  </a>
+                  <label class="text-text/70 mb-1 block text-sm font-medium">
+                    Message
+                  </label>
+                  <textarea
+                    rows="4"
+                    class="bg-background border-background-alt/50 focus:border-primary w-full rounded-lg border px-4 py-2 focus:outline-none">
+                  </textarea>
                 </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 bg-blue-900/50 rounded-full flex items-center justify-center mr-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 text-blue-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-sm text-gray-400">GitHub</div>
-                  <a
-                    href={profile.contact.github}
-                    target="_blank"
-                    class="text-blue-300 hover:underline">
-                    github.com/votrenom
-                  </a>
-                </div>
-              </div>
+                <button
+                  type="submit"
+                  class="bg-secondary hover:bg-secondary-light text-background w-full rounded-lg px-4 py-2 font-medium transition">
+                  Envoyer
+                </button>
+              </form>
             </div>
 
-            <div class="mt-8">
-              <h3 class="text-xl font-semibold mb-4 text-blue-300">
-                Disponibilité
+            <!-- Contact information with updated styling -->
+            <div>
+              <h3 class="text-secondary mb-4 text-xl font-semibold">
+                Informations de contact
               </h3>
-              <p class="text-gray-400">
-                Actuellement disponible pour des missions freelance et des
-                projets à temps plein à distance.
-              </p>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div
+                    class="bg-primary-light/20 mr-3 flex h-10 w-10 items-center justify-center rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="text-text h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-text/70 text-sm">Email</div>
+                    <a
+                      href="mailto:{profile.contact.email}"
+                      class="text-primary hover:underline">
+                      {profile.contact.email}
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Update other contact items similarly -->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
+  {/if}
   <!-- Footer -->
-  <footer class="py-10 px-6 md:px-0 bg-gray-900">
+  <footer class="bg-secondary text-background px-6 py-10 md:px-0">
     <div class="container mx-auto text-center">
-      <p class="text-gray-500">
+      <p class="text-background/70">
         © {new Date().getFullYear()}
         {profile.name} - Tous droits réservés
       </p>
-      <div class="flex justify-center space-x-6 mt-4">
+      <div class="mt-4 flex justify-center space-x-6">
         <a
           href={profile.contact.linkedin}
           target="_blank"
-          class="text-gray-500 hover:text-blue-400 transition">
+          class="text-background/70 hover:text-primary transition">
           <span class="sr-only">LinkedIn</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -539,7 +328,7 @@
         <a
           href={profile.contact.github}
           target="_blank"
-          class="text-gray-500 hover:text-blue-400 transition">
+          class="text-background/70 hover:text-primary transition">
           <span class="sr-only">GitHub</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path
